@@ -1,6 +1,6 @@
 package aplicativos;
 
-public class Piloto  {
+public class Piloto extends Pessoa  {
 
     public String breve;
 

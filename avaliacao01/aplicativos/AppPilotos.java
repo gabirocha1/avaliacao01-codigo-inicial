@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class AppPilotos { 
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        final int MAX_ELEMENTOS = 1;
+        int MAX_ELEMENTOS = 1;
         int opcao, qtdCadastrados= 0;
         Pessoa[] pilotos = new Pessoa [MAX_ELEMENTOS];
         Scanner in = new Scanner(System.in);
@@ -30,7 +30,7 @@ public class AppPilotos {
                     voltarMenu(in);
                     continue;} 
                 
-                  Pessoa piloto = new Pessoa ();
+                  Piloto piloto = new Piloto ();
 
                   System.out.print("Nome: ");
                   piloto.setNome(in.nextLine());
@@ -65,7 +65,7 @@ public class AppPilotos {
 
                 for (int i= 0; i < qtdCadastrados; i++){
                     Pessoa piloto = pilotos [i];
-                    System.out.printf("Nome completo: %s %s      -      CPF: %s       -  Brevê: %s     ", piloto.getNome(), piloto.getSobrenome(), piloto.getImprimeCPF(), piloto.getBreve());
+                    System.out.printf("Nome completo: %s %s      -      CPF: %s       -  Brevê: %s     ", piloto.getNome(), piloto.getSobrenome(), piloto.getImprimeCPF(), ((Piloto) piloto).getBreve());
                 
 
 
@@ -81,7 +81,7 @@ public class AppPilotos {
             Pessoa piloto = pilotos [i];
 
             if( CPFdigitado.equals(pilotos[i].CPF))
-            System.out.printf("Nome completo: %s %s      -      CPF: %s       -  Brevê: %s     ", piloto.getNome(), piloto.getSobrenome(), piloto.getImprimeCPF(), piloto.getBreve());
+            System.out.printf("Nome completo: %s %s      -      CPF: %s       -  Brevê: %s     ", piloto.getNome(), piloto.getSobrenome(), piloto.getImprimeCPF(), ((Piloto) piloto).getBreve());
             else 
                 System.out.print("CPF não encontrado, digite novamente !! ");}
 
@@ -92,14 +92,15 @@ public class AppPilotos {
             else if (opcao == 4) {
 	        System.out.println(" Informe a quantidade de Pilotos que serão cadastrados: ");
 	        int Aumentar = (in.nextInt());
-            Pessoa [] aux = new Pessoa [pilotos.length + Aumentar];
-            for (int i = 0; i < pilotos.length; i++)
-            {
-                aux[i] = pilotos[i];
-            }
-            pilotos = aux;
+            
+            Pessoa[] NovoTamanho = new Pessoa [Aumentar];
+            
+             for (int i= 0; i >= MAX_ELEMENTOS; i++)
+            {Aumentar = MAX_ELEMENTOS + Aumentar; }
+             MAX_ELEMENTOS= Aumentar;  
 
-            }
+             }   
+
             else if (opcao != 0) {
                 System.out.println("\nOpção inválida!");
             }

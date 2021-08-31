@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class AppPilotos { 
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        int MAX_ELEMENTOS = 1;
+        int MAX_ELEMENTOS = 20;
         int opcao, qtdCadastrados= 0;
         Pessoa[] pilotos = new Pessoa [MAX_ELEMENTOS];
         Scanner in = new Scanner(System.in);
@@ -61,7 +61,7 @@ public class AppPilotos {
                 }
                 System.out.println("===================");
                 System.out.println("LISTAGEM DE PILOTOS");
-                System.out.println("==================="); 
+                System.out.println("===================");
 
                 for (int i= 0; i < qtdCadastrados; i++){
                     Pessoa piloto = pilotos [i];
